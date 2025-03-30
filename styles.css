@@ -24,19 +24,18 @@ body {
     min-height: 100vh;
     margin: 0;
     color: var(--text-color);
-    padding: 1rem;
+    padding: 0 1rem; /* Added padding to prevent edge touching */
     box-sizing: border-box;
 }
 
 .main-header {
     width: 100%;
-    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 1.5rem;
-    padding: 0 0.5rem;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -46,10 +45,10 @@ body {
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
     padding-top: 0;
-    width: 100%;
+    width: calc(100% - 2rem); /* Adjusted width to account for padding */
     max-width: 34.375rem;
     text-align: center;
-    margin: 1rem auto 0;
+    margin: 2rem auto;
 }
 
 .vertical-lines {
@@ -179,7 +178,7 @@ img {
     z-index: 1;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-94%);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     font-size: clamp(0.875rem, 3vw, 1rem);
 }
@@ -207,6 +206,8 @@ img {
 
 /* Responsive Breakpoints */
 @media (min-width: 576px) {
+
+
     .main-header {
         flex-direction: row;
         justify-content: space-between;
@@ -215,7 +216,8 @@ img {
     
     .timer-options {
         flex-direction: row;
-        gap: 1rem;
+        margin: auto;
+        padding: 1rem;
     }
     
     .start-btn {
@@ -245,7 +247,7 @@ img {
 }
 
 /* Large desktop screens */
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
     .container {
         padding: 2rem;
     }
@@ -276,16 +278,24 @@ img {
 }
 
 /* Very small screens */
-@media (max-width: 360px) {
+@media (max-width: 360px)  {
     body {
-        padding: 0.5rem;
+        padding: 0;
+        margin: auto;
     }
     
     .container {
         padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .timer-options {
+        flex-direction: column;
+        padding: 0.5rem;
     }
     
     .timer-display {
         font-size: 3rem;
     }
+
 }
